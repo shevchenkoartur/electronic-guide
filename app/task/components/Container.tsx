@@ -2,9 +2,9 @@
 
 import React from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import Description from '@/app/task/[...id]/components/Description';
-import Solution from '@/app/task/[...id]/components/Solution';
-import Tests from '@/app/task/[...id]/components/Tests';
+import Description from '@/app/task/components/Description';
+import Solution from '@/app/task/components/Solution';
+import Tests from '@/app/task/components/Tests';
 import {Button, Stack} from '@mui/material';
 import {useRouter} from 'next/navigation';
 

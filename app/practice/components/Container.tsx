@@ -3,10 +3,10 @@ import React from 'react';
 import TaskBlock from '@/app/practice/components/TaskBlock';
 import History from '@/app/practice/components/History';
 import {Divider} from '@mui/material';
-import {tasks as _tasks} from '@/app/tasks';
+import {tasks as _tasks} from '@/tasks';
 
 const Container = () => {
-  const [tasks, setTasks] = React.useState(_tasks);
+  const [tasks] = React.useState(_tasks);
   return (
     <div>
       <TaskBlock tasks={tasks} />

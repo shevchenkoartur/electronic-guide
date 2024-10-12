@@ -1,7 +1,19 @@
+export type Task = {
+  name: string;
+  description: string;
+  level: number;
+};
+
 export const level = {
   easy: 3,
   medium: 2,
   hard: 1,
+};
+
+export const levelReverse: { [key: number]: string } = {
+  3: 'easy',
+  2: 'medium',
+  1: 'hard',
 };
 
 export const tasks = [

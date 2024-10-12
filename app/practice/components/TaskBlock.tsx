@@ -3,11 +3,15 @@ import React from 'react';
 import BasicSelect from '@/app/components/BasicSelect';
 import {useRouter} from 'next/navigation';
 import {Box, Button, Stack, Typography} from '@mui/material';
-import {level as _level} from '@/app/tasks';
+import {level as _level, levelReverse, Task} from '@/tasks';
 
-const TaskBlock = (props) => {
+type Props = {
+  tasks: Task[];
+};
+
+const TaskBlock = (props: Props) => {
   const { tasks } = props;
-  const [level, setLevel] = React.useState(_level.easy);
+  const [level, setLevel] = React.useState(levelReverse[_level.easy]);
 
   console.log(tasks, 'tasks in TaskBlock');
   const { push } = useRouter();
@@ -18,7 +22,7 @@ const TaskBlock = (props) => {
       borderRadius: '10px'
     }}
     >
-      <BasicSelect level={level} />
+      <BasicSelect level={level} setLevel={setLevel}/>
       <Typography>
         задача
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, nesciunt.

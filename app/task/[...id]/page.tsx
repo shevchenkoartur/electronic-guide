@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Box} from '@mui/material';
-import Container from '@/app/task/[...id]/components/Container';
+import Container from '@/app/task/components/Container';
 
 export const metadata = {
   title: 'Task - Electronic Guide',
