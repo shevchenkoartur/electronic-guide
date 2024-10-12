@@ -1,20 +1,27 @@
 'use client';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import BasicSelect from '@/app/components/BasicSelect';
 import {useRouter} from 'next/navigation';
-import {Box, Button, Stack, Typography} from '@mui/material';
-import {level as _level, levelReverse, Task} from '@/tasks';
+import {Box, Button, Stack} from '@mui/material';
+import {level as _level, tasks as _tasks} from '@/tasks';
 
-type Props = {
-  tasks: Task[];
-};
-
-const TaskBlock = (props: Props) => {
-  const { tasks } = props;
-  const [level, setLevel] = React.useState(levelReverse[_level.easy]);
-
-  console.log(tasks, 'tasks in TaskBlock');
+const TaskBlock = () => {
+  const [level, setLevel] = useState(_level[3]);
+  const [tasks] = useState(_tasks.filter(task => task.level === level));
+  const [currentTask, setCurrentTask] = useState(tasks.find((task) => task.level === level));
   const { push } = useRouter();
+
+  useEffect(() => {
+    setCurrentTask(_tasks.find((task) => task.level === level));
+  }, [level]);
+
+  const nextTask = () => {
+    const index = _tasks.findIndex(task => task.id === currentTask.id);
+    if (index !== -1) {
+      setCurrentTask(_tasks[index + 1]);
+    }
+  };
+
   return (
     <Box mt={5} sx={{
       width: '50%',
@@ -23,12 +30,14 @@ const TaskBlock = (props: Props) => {
     }}
     >
       <BasicSelect level={level} setLevel={setLevel}/>
-      <Typography>
-        задача
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, nesciunt.
-      </Typography>
+      {currentTask && (
+        <>
+          <div>{currentTask.name}</div>
+          <div>{currentTask.description}</div>
+        </>
+      )}
       <Stack spacing={2} direction="row">
-        <Button variant="contained">Пропустити</Button>
+        <Button variant="contained" onClick={nextTask}>Пропустити</Button>
         <Button variant="contained" onClick={() => push('/task/123')}>Тренуватись</Button>
       </Stack>
     </Box>

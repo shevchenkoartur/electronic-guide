@@ -6,7 +6,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import {level as _level, levelReverse} from '@/tasks';
+import { level as _level } from '@/tasks';
 
 type Props = {
   level: string;
@@ -31,9 +31,9 @@ export default function BasicSelect(props: Props) {
           label="Level"
           onChange={handleChange}
         >
-          <MenuItem value={levelReverse[_level.easy]}>Легкий</MenuItem>
-          <MenuItem value={levelReverse[_level.medium]}>Середній</MenuItem>
-          <MenuItem value={levelReverse[_level.hard]}>Важкий</MenuItem>
+          <MenuItem value={_level[3]}>Легкий</MenuItem>
+          <MenuItem value={_level[2]}>Середній</MenuItem>
+          <MenuItem value={_level[1]}>Важкий</MenuItem>
         </Select>
       </FormControl>
     </Box>
