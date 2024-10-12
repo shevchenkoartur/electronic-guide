@@ -16,9 +16,11 @@ const TaskBlock = () => {
   }, [level]);
 
   const nextTask = () => {
-    const index = _tasks.findIndex(task => task.id === currentTask.id);
-    if (index !== -1) {
-      setCurrentTask(_tasks[index + 1]);
+    if (currentTask) {
+      const index = _tasks.findIndex(task => task.id === currentTask.id);
+      if (index !== -1) {
+        setCurrentTask(_tasks[index + 1]);
+      }
     }
   };
 
