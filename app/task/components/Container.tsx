@@ -1,27 +1,36 @@
 'use client';
-
 import React from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Description from '@/app/task/components/Description';
 import Solution from '@/app/task/components/Solution';
 import Tests from '@/app/task/components/Tests';
-import {Button, Stack} from '@mui/material';
+import {Button, Stack, Container as _Container, Grid, Box} from '@mui/material';
 import {useRouter} from 'next/navigation';
 
-const Container = () => {
+const Container = (props) => {
+  const { task } = props;
   const { push } = useRouter();
   return (
-    <div>
-      <ArrowBackIcon onClick={() => push('/practice')}/>
-      <Description />
-      <Solution />
-      <Tests />
-
-      <Stack spacing={2} direction="row">
-        <Button variant="contained">Тестувати</Button>
-        <Button variant="contained">Перевірити</Button>
-      </Stack>
-    </div>
+    <_Container>
+      <Box sx={{flexGrow: 1}}>
+        <Grid container spacing={2}>
+          <ArrowBackIcon onClick={() => push('/practice')}/>
+          <Grid item xs={5}>
+            <Description task={task} />
+          </Grid>
+          <Grid item xs={5}>
+            <Solution />
+            <Tests />
+          </Grid>
+          <Grid item xs={5}>
+            <Stack spacing={2} direction="row">
+              <Button variant="contained">Тестувати</Button>
+              <Button variant="contained">Перевірити</Button>
+            </Stack>
+          </Grid>
+        </Grid>
+      </Box>
+    </_Container>
   );
 };
 

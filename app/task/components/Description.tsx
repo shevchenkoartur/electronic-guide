@@ -1,10 +1,14 @@
 import React from 'react';
+import {Box} from '@mui/material';
 
-const Description = () => {
+const Description = (props) => {
+  const { task } = props;
   return (
-    <div>
-      Description
-    </div>
+      <Box sx={{border: '1px solid red'}}>
+        {task.name}
+        {task.description}
+        Description
+      </Box>
   );
 };
 
