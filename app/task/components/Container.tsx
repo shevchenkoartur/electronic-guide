@@ -6,8 +6,13 @@ import Solution from '@/app/task/components/Solution';
 import Tests from '@/app/task/components/Tests';
 import {Button, Stack, Container as _Container, Grid, Box} from '@mui/material';
 import {useRouter} from 'next/navigation';
+import {Task} from '@/tasks';
 
-const Container = (props) => {
+type Props = {
+  task: Task;
+};
+
+const Container = (props: Props) => {
   const { task } = props;
   const { push } = useRouter();
   return (

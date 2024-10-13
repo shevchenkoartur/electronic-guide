@@ -1,7 +1,12 @@
 import React from 'react';
 import {Box} from '@mui/material';
+import {Task} from '@/tasks';
 
-const Description = (props) => {
+type Props = {
+  task: Task;
+};
+
+const Description = (props: Props) => {
   const { task } = props;
   return (
       <Box sx={{border: '1px solid red'}}>

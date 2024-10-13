@@ -2,7 +2,7 @@ export type Task = {
   id: number;
   name: string;
   description: string;
-  level: number;
+  level: string;
 };
 
 export const level: { [key: number]: string } = {
@@ -11,7 +11,7 @@ export const level: { [key: number]: string } = {
   1: 'hard',
 };
 
-export const tasks = [
+export const tasks: Task[] = [
   {
     id: 1,
     name: 'Порахуйте символи у вашому рядку',

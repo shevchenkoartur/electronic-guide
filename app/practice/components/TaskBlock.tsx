@@ -36,12 +36,12 @@ const TaskBlock = () => {
         <>
           <div>{currentTask.name}</div>
           <div>{currentTask.description}</div>
+          <Stack spacing={2} direction="row">
+            <Button variant="contained" onClick={nextTask}>Пропустити</Button>
+            <Button variant="contained" onClick={() => push(`/task/${currentTask.id}`)}>Тренуватись</Button>
+          </Stack>
         </>
       )}
-      <Stack spacing={2} direction="row">
-        <Button variant="contained" onClick={nextTask}>Пропустити</Button>
-        <Button variant="contained" onClick={() => push(`/task/${currentTask.id}`)}>Тренуватись</Button>
-      </Stack>
     </Box>
   );
 };

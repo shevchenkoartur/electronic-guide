@@ -2,8 +2,8 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/theme/tomorrow-night-bright.css";
 import {Controlled as ControlledEditor} from 'react-codemirror2'
 
-require('codemirror/mode/xml/xml');
-require('codemirror/mode/javascript/javascript');
+import 'codemirror/mode/xml/xml';
+import 'codemirror/mode/javascript/javascript';
 
 const Editor = (props) => {
   const { editorTitle, value, onChange, className } = props;

@@ -6,7 +6,7 @@ export const metadata = {
   title: 'Task - Electronic Guide',
 };
 
-export default function Task({ params }) {
+export default function Task({ params }: { params: { id: number[] } }) {
   const task = tasks.find((task) => task.id === Number(params.id[0]));
-  return <Container task={task} />;
+  return <Container task={task!} />;
 }
