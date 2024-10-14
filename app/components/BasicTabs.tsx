@@ -56,7 +56,7 @@ export default function BasicTabs() {
         <BasicList />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <BasicList />
+        {/*<BasicList />*/}
       </CustomTabPanel>
     </Box>
   );

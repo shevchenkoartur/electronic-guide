@@ -24,7 +24,7 @@ const Container = (props: Props) => {
             <Description task={task} />
           </Grid>
           <Grid item xs={5}>
-            <Solution />
+            <Solution task={task} />
             <Tests />
           </Grid>
           <Grid item xs={5}>

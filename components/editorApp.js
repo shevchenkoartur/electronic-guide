@@ -2,8 +2,9 @@
 import Editor from "./editor";
 import {useState} from 'react';
 
-const EditorApp = () => {
-  const [js, setJs] = useState("");
+const EditorApp = (props) => {
+  const { functionTemplate } = props;
+  const [js, setJs] = useState(functionTemplate ? functionTemplate : '');
   return (
     <>
       <div>

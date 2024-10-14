@@ -9,7 +9,7 @@ export default function Theory() {
   return (
     <>
       <PersistentDrawerLeft />
-      Theory!!!
+      [...]
     </>
   );
 }
